@@ -8,6 +8,8 @@ CREATE TABLE  "LOGIN"
 	"IDXCODE" NUMBER NOT NULL ENABLE, 
 	"PHONE" VARCHAR2(4000), 
 	"SEX" VARCHAR2(4000), 
+	"DATE" DATE,
+	"STATUS" NUMBER(2,0) NOT NULL ENMALE,
 	 CONSTRAINT "LOGIN_PK" PRIMARY KEY ("IDX") ENABLE
    )
   기본 키값은 idx< 시퀀스를 넣어서 만듬 추후 게시판 테이블 제작시 idxcode를 참조하는 테이블 생성
@@ -21,6 +23,8 @@ CREATE TABLE  "LOGIN"
   idxcode = 주민번호 nop null
   phone =  전화번호
   sex = 성별
+  date = 최종접속날짜
+  status = 1(회원활성화),0(회원탈퇴)2(어드민)
   
   //시퀀스 생성
   CREATE SEQUENCE   "LOGIN.SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE
