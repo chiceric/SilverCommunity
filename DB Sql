@@ -1,0 +1,24 @@
+CREATE table "SILVER_T" (
+    "S_TEL"      VARCHAR2(4000),
+    "S_NAME"     VARCHAR2(4000),
+    "S_ADDR"     VARCHAR2(4000),
+    "S_BIRTH"    DATE,
+    "S_GENDER"   VARCHAR2(4000),
+    "S_STATUS"   NUMBER(2,0),
+    "S_DATE"     DATE,
+    constraint  "SILVER_T_PK" primary key ("S_TEL")
+)
+
+CREATE SEQUENCE   "SEQ_SILVER_IDX"  MINVALUE 1 
+MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE
+
+CREATE table "BOARD_T" (
+    "B_IDX"        NUMBER(6,0),
+    "B_SUBJECT"    VARCHAR2(4000),
+    "B_WRITER"     VARCHAR2(4000),
+    "B_CONTENT"    VARCHAR2(4000),
+    "B_WRITE_DATE" DATE,
+    "B_HIT"        NUMBER(5,0),
+    "S_TEL"        VARCHAR2(4000),
+    constraint  "BOARD_T_PK" primary key ("B_IDX")
+)
