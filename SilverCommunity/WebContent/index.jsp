@@ -267,7 +267,7 @@
 		</div>
 
 		<div id="footer">
-			<address>Copyright &copy; allright inc.</address>
+			<address>Copyright Seven Stars &copy; allright inc.</address>
 		</div>
 
 </body>
