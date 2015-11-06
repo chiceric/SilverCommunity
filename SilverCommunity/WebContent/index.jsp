@@ -202,11 +202,11 @@
 							<tbody>
 								<tr>
 									<td class="title"><label for="name"><img src="img/name.png"></label></td>
-									<td><input type="text" name="name" id="name" size="12"/></td>
+									<td><input type="text" name="s_name" id="s_name" size="12"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="id"><img src="img/gender.png"></label></td>
-										<td><select name="gender">
+										<td><select name="s_gender">
 											<option value="male">남</option>
 											<option value="female">여</option>
 										</select>
@@ -214,7 +214,7 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="birth"><img src="img/birth.png"></label></td>
-									<td><input type="text" name="birth" id="birth" size="8"/></td>
+									<td><input type="text" name="s_birth" id="s_birth" size="8"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="phone"><img src="img/phone.png"></label></td>
@@ -231,7 +231,7 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="pwd"><img src="img/pwd.png"></label></td>
-									<td><input type="password" name="pwd" id="pwd" size="12"/></td>
+									<td><input type="password" name="s_pwd" id="s_pwd" size="12"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="repwd"><img src="img/pwd.png"></label></td>
@@ -239,11 +239,11 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="nickname"><img src="img/nickname.png"></label></td>
-									<td><input type="text" name="nickname" id="nickname" size="30"/></td>
+									<td><input type="text" name="s_nickname" id="s_nickname" size="30"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="addr"><img src="img/addr.png"></label></td>
-									<td><input type="text" name="addr" id="addr" size="30"/></td>
+									<td><input type="text" name="s_addr" id="s_addr" size="30"/></td>
 								</tr>
 							</tbody>
 						</table>
@@ -263,7 +263,7 @@
 		</div>
 
 		<div id="container">
-			<p>녹차는 은은한 향을 좋아하는 사람들이 애용하는 차이다. 녹차를 마실 줄 모르는 사람들은 티백들을 모두 뜯어 주전자에 넣고 끊이기도 하는데 강한 차의 향기도 견디기 힘들겠지만 보관도 힘들고 그때그때 방금 끓인 듯한 맛을 느끼지 못하게 되며 진한 카페인 덕에 밤에 잠들기도 힘들 것이다.</p>
+			<p>녹차는 은은한 향을 좋아하는 사람들이 애용하는 차이다.</p>
 		</div>
 
 		<div id="footer">

@@ -64,15 +64,17 @@ public class LoginControl {
 	@RequestMapping(value="/reg.sc", method=RequestMethod.POST)
 	public ModelAndView reg(LoginVO vo) throws Exception{
 		
-		System.out.println(vo.getS_tel());
+		String[] s_phone = request.getParameterValues("s_tel");
+		String s_tel = makeString(s_phone);
+		
+		System.out.println(s_tel);
 		
 		/*String s_name = request.getParameter("name");
 		String s_pwd = request.getParameter("pwd");
 		String s_gender = request.getParameter("gender");
 		String s_birth = request.getParameter("birth");
 		String s_nickname = request.getParameter("nickname");
-		String[] s_phone = request.getParameterValues("phone");
-		String s_tel = makeString(s_phone);
+		
 		
 		String s_addr = request.getParameter("addr");
 		boolean check;
