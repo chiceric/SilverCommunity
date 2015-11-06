@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:property-placeholder location="classpath:silver/props/jdbc.properties"/>
+	
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   		<property name="driverClassName" value="${jdbc.driver}"/>
+   		<property name="url" value="${jdbc.url}"/>
+   		<property name="username" value="${jdbc.user}"/>
+   		<property name="password" value="${jdbc.pwd}"/>
+   	</bean>
+	<!-- mybatis.org에 접속하여 products메뉴 클릭 화면을 조금만 내리면  spring항목에 있는
+	[download]를 선택하여 mybatis-spring-1.2.3.zip파일을 내려받아 압축을 풀고 mybatis-spring-1.2.3.jar를
+	현재 프로젝트 lib폴더에 복사해 둔다. -->
+	
+	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"/>
+		<property name="mapperLocations" value="classpath:silver/mapper/*.xml"/>
+	</bean>
+	
+	<bean id="template" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factory"/>
+	</bean>
+	
+	<bean id="dao" class="silver.web.dao.LoginDAO" autowire="byName">
+		<!-- <property name="template" ref="template"/> -->
+	</bean>
+</beans>
