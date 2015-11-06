@@ -9,7 +9,7 @@
   resultType="silver.web.vo.LoginVO"
   parameterType="java.util.Map">
   	SELECT * FROM silver_t
-  	WHERE s_tel=#{tel} AND s_pwd=#{pwd}
+  	WHERE s_tel=#{s_tel} AND s_pwd=#{s_pwd}
   </select>
   
   <!-- 회원가입 insert -->

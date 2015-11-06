@@ -1,9 +1,16 @@
 package silver.web.control;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import silver.web.dao.LoginDAO;
@@ -12,11 +19,14 @@ import silver.web.vo.LoginVO;
 @Controller
 public class LoginControl {
 	
+	@Autowired
 	LoginDAO dao;
 	
-	public void setDao(LoginDAO dao) {
-		this.dao = dao;
-	}
+	@Autowired
+	HttpServletRequest request;
+	
+	@Autowired
+	HttpSession session;
 	
 	public String makeString(
 			String[] ar){
@@ -30,10 +40,33 @@ public class LoginControl {
 		return buf.toString();
 	}
 
-	@RequestMapping("reg")
-	public ModelAndView reg(HttpServletRequest request){
+	@RequestMapping(value="/login.sc", method=RequestMethod.POST)
+	public ModelAndView login(LoginVO vo) throws Exception{
+		Map<String,String> m = new HashMap<>();
+		m.put("s_tel", vo.getS_tel());
+		m.put("s_pwd", vo.getS_pwd());
+
+		LoginVO bvo = dao.login(m);
 		
-		String s_name = request.getParameter("name");
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("vo", bvo);
+	
+	if(bvo != null){
+			session.setAttribute("login_ok", bvo);
+			mv.setViewName("/index");
+		}
+		else
+			mv.setViewName("/error");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/reg.sc", method=RequestMethod.POST)
+	public ModelAndView reg(LoginVO vo) throws Exception{
+		
+		System.out.println(vo.getS_tel());
+		
+		/*String s_name = request.getParameter("name");
 		String s_pwd = request.getParameter("pwd");
 		String s_gender = request.getParameter("gender");
 		String s_birth = request.getParameter("birth");
@@ -43,9 +76,10 @@ public class LoginControl {
 		
 		String s_addr = request.getParameter("addr");
 		boolean check;
+		*/
 		
-		LoginVO vo = new LoginVO();
-		
+		System.out.println(vo.getS_name());
+		/*
 		vo.setS_tel(s_tel);
 		vo.setS_name(s_name);
 		vo.setS_addr(s_addr);
@@ -53,15 +87,10 @@ public class LoginControl {
 		vo.setS_gender(s_gender);
 		vo.setS_pwd(s_pwd);
 		vo.setS_nickname(s_nickname);
-		
-		check = dao.add(vo);
+		*/
 		
 		ModelAndView mv = new ModelAndView();
-		
-		if(check==true)
-			mv.setViewName("hi");
-		else
-			mv.setViewName("error");
+		mv.setViewName("/index");
 		
 		return mv;
 		

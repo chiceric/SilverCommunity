@@ -121,8 +121,8 @@
 			
 			function login(){
 		//		var s_id = document.getElementById("m_id").value;
-				var s_id = document.forms[0].id.value;
-				var s_pwd = document.forms[0].pwd.value;
+				var s_id = document.forms[0].s_tel.value;
+				var s_pwd = document.forms[0].s_pwd.value;
 				
 				if(s_id == ""){
 					alert("아이디를 입력하세요");
@@ -143,19 +143,19 @@
 <% 
 	//세션에 저장된 값들 중 이름이
 	//mem_vo라는 이름으로 저장된 객체 가져오기
-	Object obj = session.getAttribute("mem_vo");
+	Object obj = session.getAttribute("login_ok");
 
 	if(obj == null){
 %>
 		<div id="login">
 			<div id="l_form">
-				<form action="login.jsp" method="post">
+				<form action="login.sc" method="post">
 					<fieldset>
 						<legend><img src="img/login.png"/></legend>
 						<label for="m_id">TEL:</label>
-						<input type="text" name="tel" id="tel" size="8" maxlength="14"/><br/>
+						<input type="text" name="s_tel" id="s_tel" size="8" maxlength="14"/><br/>
 						<label for="m_pwd">PW:</label>
-						<input type="password" name="pwd" id="pwd" size="8"/><br/>
+						<input type="password" name="s_pwd" id="s_pwd" size="8"/><br/>
 						
 						<input type="button" value="Registry" onclick="regView()"/>
 						
@@ -170,11 +170,11 @@
 		//저장된 객체가 있는 경우다.
 		//이때
 		// 그것을 MemberVO로 변환한다.
-		LoginVO vo = (LoginVO)obj;
+		
 %>
 		<div id="g_form">
-			<span class="u_name"><%=vo.getS_name() %>  </span>
-			(<span class="u_id"><%=vo.getS_tel() %>  </span>)님 환영합니다.
+			<span class="u_name">${vo.s_name }  </span>
+			(<span class="u_id">${vo.s_tel }  </span>)님 환영합니다.
 			<p>
 				<input type="button" value="Logout"
 					onclick="logout()"/>
@@ -188,15 +188,14 @@
 	}//if문의 끝!
 %>
 			<div id="reg">
-				<form action="reg.jsp" method="post">
+				<form action="reg.sc" method="post">
 					<fieldset>
 						<legend><img src="img/reg.png"/></legend>
 						<table cellpadding="4" cellspacing="0">
 							<tfoot>
 								<tr>
 									<td colspan="2" align="right">
-										<input type="button" value="Registry"
-											onclick="javascript:location.href='/reg.sc'"/>
+										<input type="submit" value="회원가입"/>
 									</td>
 								</tr>
 							</tfoot>
@@ -219,13 +218,13 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="phone"><img src="img/phone.png"></label></td>
-									<td><select name="phone">
+									<td><select name="s_tel">
 										<option value="010">010</option>
 										<option value="011">011</option>
 										<option value="017">017</option>
 										<option value="019">019</option>
-									</select>-<input type="text" name="phone" id="phone" size="4"/>
-									-<input type="text" name="phone" id="phone" size="4"/></td>
+									</select>-<input type="text" name="s_tel" id="s_tel" size="4"/>
+									-<input type="text" name="s_tel" id="s_tel" size="4"/></td>
 									<td>
 									<img name="check" onclick="open()" src="img/check.png">
 									</td>									

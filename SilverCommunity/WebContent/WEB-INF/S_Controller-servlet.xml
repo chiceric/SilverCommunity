@@ -7,10 +7,12 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
+        <context:annotation-config/>
+        
     <!-- <bean name="/index.sc" class="silver.web.control.LoginControl" autowire="byName"/> -->
  	
  	<!-- <bean id="s1" class="silver.web.control.LoginControl"/> -->
- 	<bean name="/reg.sc" class="silver.web.control.LoginControl" autowire="byName"/>
+ 	<bean id="login" class="silver.web.control.LoginControl"/>
     
 		
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
