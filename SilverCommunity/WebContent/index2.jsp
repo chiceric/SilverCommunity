@@ -115,7 +115,7 @@
 			return;
 		}
 		if(s_pwd == ""){
-			alert("비밀번호를 입력하세요");
+			alert("비밀번호를 입.력하세요");
 			document.forms[0].pwd.focus();
 			return;
 		}
