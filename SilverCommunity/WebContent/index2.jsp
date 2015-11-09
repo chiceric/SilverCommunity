@@ -160,8 +160,8 @@
 		LoginVO vo = (LoginVO)obj;
 %>
 		<div id="g_form">
-			<span class="u_name"><%=vo.getS_name() %>  </span>
-			(<span class="u_id"><%=vo.getS_tel() %>  </span>)님 환영합니다.
+			<span class="u_name"><%=vo.getName() %>  </span>
+			(<span class="u_id"><%=vo.getTel() %>  </span>)님 환영합니다.
 			<p>
 				<input type="button" value="Logout"
 					onclick="logout()"/>
