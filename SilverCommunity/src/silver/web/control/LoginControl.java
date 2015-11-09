@@ -43,8 +43,8 @@ public class LoginControl {
 	@RequestMapping(value="/login.sc", method=RequestMethod.POST)
 	public ModelAndView login(LoginVO vo) throws Exception{
 		Map<String,String> m = new HashMap<>();
-		m.put("s_tel", vo.getS_tel());
-		m.put("s_pwd", vo.getS_pwd());
+		m.put("s_tel", vo.getTell());
+		m.put("s_pwd", vo.getPwd());
 
 		LoginVO bvo = dao.login(m);
 		
@@ -80,7 +80,7 @@ public class LoginControl {
 		boolean check;
 		*/
 		
-		System.out.println(vo.getS_name());
+		System.out.println(vo.getName());
 		/*
 		vo.setS_tel(s_tel);
 		vo.setS_name(s_name);
