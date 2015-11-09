@@ -43,6 +43,8 @@ public class LoginControl {
 
 	@RequestMapping(value="login.sc", method=RequestMethod.POST)
 	public ModelAndView login(LoginVO vo) throws Exception{
+		request.setCharacterEncoding("utf-8");
+		
 		Map<String,String> m = new HashMap<>();
 		
 		System.out.println("전번:"+vo.getTel());
@@ -72,8 +74,9 @@ public class LoginControl {
 		String[] s_phone = request.getParameterValues("tel");
 		String s_tel = makeString(s_phone);
 		
-		System.out.println(s_tel);
-		System.out.println(vo.getName());
+		vo.setTel(s_tel);
+
+		dao.add(vo);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/index");

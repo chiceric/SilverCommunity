@@ -8,7 +8,7 @@ public class LoginVO {
 		return tel;
 	}
 
-	public void setTell(String tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
