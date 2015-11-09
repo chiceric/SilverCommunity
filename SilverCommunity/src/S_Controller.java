@@ -10,5 +10,5 @@ import org.springframework.web.servlet.DispatcherServlet;
 @WebServlet("*.sc")
 
 public class S_Controller extends DispatcherServlet {
-	String dkdkl;
+	
 }
