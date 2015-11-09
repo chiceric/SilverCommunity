@@ -9,15 +9,15 @@
   resultType="silver.web.vo.LoginVO"
   parameterType="java.util.Map">
   	SELECT * FROM silver_t
-  	WHERE s_tel=#{s_tel} AND s_pwd=#{s_pwd}
+  	WHERE tel=#{tel} AND pwd=#{pwd}
   </select>
   
   <!-- 회원가입 insert -->
   <insert id="add" 
   parameterType="silver.web.vo.LoginVO">
-  	INSERT INTO silver_t(s_tel, s_name, s_birth, s_addr, s_gender, s_status,
-	s_date, s_pwd, s_idx, s_nickname)
-  	VALUES(#{s_tel},#{s_name},#{s_addr},#{s_birth}, #{s_gender},
-  	1, sysdate, #{s_pwd}, seq_silver_idx.NEXTVAL, #{s_nickname})
+  	INSERT INTO silver_t(tel, name, birth, addr, gender, status,
+	regdate, pwd, idx, nickname)
+  	VALUES(#{tel},#{name},#{birth},#{addr}, #{gender},
+  	1, sysdate, #{pwd}, SEQ_SILVER_IDX.NEXTVAL, #{nickname})
   </insert>
 </mapper>

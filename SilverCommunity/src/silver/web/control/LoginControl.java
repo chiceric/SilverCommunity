@@ -39,20 +39,25 @@ public class LoginControl {
 		}
 		return buf.toString();
 	}
+	
 
-	@RequestMapping(value="/login.sc", method=RequestMethod.POST)
+	@RequestMapping(value="login.sc", method=RequestMethod.POST)
 	public ModelAndView login(LoginVO vo) throws Exception{
 		Map<String,String> m = new HashMap<>();
-		m.put("s_tel", vo.getTell());
-		m.put("s_pwd", vo.getPwd());
+		
+		System.out.println("전번:"+vo.getTel());
+		System.out.println("비번"+vo.getPwd());
+		
+		m.put("tel", vo.getTel());
+		m.put("pwd", vo.getPwd());
 
-		LoginVO bvo = dao.login(m);
+		vo = dao.login(m);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("vo", bvo);
+		mv.addObject("vo", vo);
 	
-	if(bvo != null){
-			session.setAttribute("login_ok", bvo);
+	if(vo != null){
+			session.setAttribute("login_ok", vo);
 			mv.setViewName("/index");
 		}
 		else
@@ -61,10 +66,10 @@ public class LoginControl {
 	}
 	
 	
-	@RequestMapping(value="/reg.sc", method=RequestMethod.POST)
+	@RequestMapping(value="reg.sc", method=RequestMethod.POST)
 	public ModelAndView reg(LoginVO vo) throws Exception{
 		
-		String[] s_phone = request.getParameterValues("tell");
+		String[] s_phone = request.getParameterValues("tel");
 		String s_tel = makeString(s_phone);
 		
 		System.out.println(s_tel);

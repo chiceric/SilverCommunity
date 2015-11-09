@@ -121,15 +121,15 @@
 			
 			function login(){
 		//		var s_id = document.getElementById("m_id").value;
-				var s_id = document.forms[0].s_tel.value;
-				var s_pwd = document.forms[0].s_pwd.value;
+				var tel = document.forms[0].tel.value;
+				var pwd = document.forms[0].pwd.value;
 				
-				if(s_id == ""){
+				if(tel == ""){
 					alert("아이디를 입력하세요");
 					document.forms[0].id.focus();
 					return;
 				}
-				if(s_pwd == ""){
+				if(pwd == ""){
 					alert("비밀번호를 입력하세요");
 					document.forms[0].pwd.focus();
 					return;
@@ -152,10 +152,10 @@
 				<form action="login.sc" method="post">
 					<fieldset>
 						<legend><img src="img/login.png"/></legend>
-						<label for="m_id">TEL:</label>
-						<input type="text" name="s_tel" id="s_tel" size="8" maxlength="14"/><br/>
-						<label for="m_pwd">PW:</label>
-						<input type="password" name="s_pwd" id="s_pwd" size="8"/><br/>
+						<label for="tel">tel:</label>
+						<input type="text" name="tel" id="tel" size="8" /><br/>
+						<label for="pwd">pwd:</label>
+						<input type="password" name="pwd" id="pwd" size="8"/><br/>
 						
 						<input type="button" value="Registry" onclick="regView()"/>
 						
@@ -173,8 +173,8 @@
 		
 %>
 		<div id="g_form">
-			<span class="u_name">${vo.s_name }  </span>
-			(<span class="u_id">${vo.s_tel }  </span>)님 환영합니다.
+			<span class="u_name">${vo.name }  </span>
+			(<span class="u_id">${vo.tel }  </span>)님 환영합니다.
 			<p>
 				<input type="button" value="Logout"
 					onclick="logout()"/>
@@ -202,11 +202,11 @@
 							<tbody>
 								<tr>
 									<td class="title"><label for="name"><img src="img/name.png"></label></td>
-									<td><input type="text" name="s_name" id="s_name" size="12"/></td>
+									<td><input type="text" name="name" id="name" size="12"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="id"><img src="img/gender.png"></label></td>
-										<td><select name="s_gender">
+										<td><select name="gender">
 											<option value="male">남</option>
 											<option value="female">여</option>
 										</select>
@@ -214,24 +214,24 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="birth"><img src="img/birth.png"></label></td>
-									<td><input type="text" name="s_birth" id="s_birth" size="8"/></td>
+									<td><input type="text" name="birth" id="birth" size="8"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="phone"><img src="img/phone.png"></label></td>
-									<td><select name="s_tel">
+									<td><select name="tel">
 										<option value="010">010</option>
 										<option value="011">011</option>
 										<option value="017">017</option>
 										<option value="019">019</option>
-									</select>-<input type="text" name="s_tel" id="s_tel" size="4"/>
-									-<input type="text" name="s_tel" id="s_tel" size="4"/></td>
+									</select>-<input type="text" name="tel" id="tel" size="4"/>
+									-<input type="text" name="tel" id="tel" size="4"/></td>
 									<td>
 									<img name="check" onclick="open()" src="img/check.png">
 									</td>									
 								</tr>
 								<tr>
 									<td class="title"><label for="pwd"><img src="img/pwd.png"></label></td>
-									<td><input type="password" name="s_pwd" id="s_pwd" size="12"/></td>
+									<td><input type="password" name="pwd" id="pwd" size="12"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="repwd"><img src="img/pwd.png"></label></td>
@@ -239,11 +239,11 @@
 								</tr>
 								<tr>
 									<td class="title"><label for="nickname"><img src="img/nickname.png"></label></td>
-									<td><input type="text" name="s_nickname" id="s_nickname" size="30"/></td>
+									<td><input type="text" name="nickname" id="nickname" size="30"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label for="addr"><img src="img/addr.png"></label></td>
-									<td><input type="text" name="s_addr" id="s_addr" size="30"/></td>
+									<td><input type="text" name="addr" id="addr" size="30"/></td>
 								</tr>
 							</tbody>
 						</table>

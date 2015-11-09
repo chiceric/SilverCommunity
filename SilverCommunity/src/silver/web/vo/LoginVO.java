@@ -1,15 +1,15 @@
 package silver.web.vo;
 
 public class LoginVO {
-	private String tell, name, birth, addr, gender, status,
+	private String tel, name, birth, addr, gender, status,
 	date, pwd, idx, nickname;
 
-	public String getTell() {
-		return tell;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setTell(String tell) {
-		this.tell = tell;
+	public void setTell(String tel) {
+		this.tel = tel;
 	}
 
 	public String getName() {

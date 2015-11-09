@@ -23,8 +23,7 @@ public class LoginDAO {
 	}
 	
 	// 회원가입 기능
-	public boolean add(
-		LoginVO vo){
+	public boolean add(LoginVO vo){
 		
 		//받은 인자들을 mem.add가 원하는
 		//MemberVO에 저장하여 보낸다.
