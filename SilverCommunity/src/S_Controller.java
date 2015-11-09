@@ -8,6 +8,7 @@ import org.springframework.web.servlet.DispatcherServlet;
  * Servlet implementation class S_Controller
  */
 @WebServlet("*.sc")
-public class S_Controller extends DispatcherServlet {
 
+public class S_Controller extends DispatcherServlet {
+	String dkdkl;
 }
