@@ -20,4 +20,32 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
+	<!-- 공지사항 리스트 뷰 -->
+	<bean name="/notice.sc" 
+	class="silver.web.bean.Notice_list_Control">
+	<property name="ntdao" ref="ntdao"></property>
+	</bean>
+	<!-- 공지사항 글쓰기 -->
+	<bean id="notice_write" class="silver.web.bean.Notice_WriteControl" autowire="byName">
+	</bean>
+	<!-- 공지사항 글쓰기 폼 -->
+	<bean name="/writeForm.sc"
+	class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" 
+			value="notice_write"/>
+	</bean>
+	<!-- 공지사항 보기 -->
+	<bean name="/notice_view.sc" class="silver.web.bean.Notice_ViewControl">
+		<property name="dao" ref="ntdao"></property>
+	</bean>
+	<!-- 공지사항 수정 -->
+	<bean id="notice_edit" class="silver.web.bean.Notice_EditControl" autowire="byName">	
+	</bean>
+	<bean name="/editForm.sc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="notice_edit"/>
+	</bean>
+	<!-- 공지사항 삭제 -->
+	<bean name="/notice_del.sc" class="silver.web.bean.Notice_DelControl" autowire="byName">
+		<property name="dao" ref="ntdao"></property>
+	</bean>
 </beans>

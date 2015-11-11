@@ -4,6 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="silver">
   
+  <!-- 페이징 기법을 위한 
+	 전체게시물의 수를 반환 -->
+	<select id="notice_totalCount" resultType="int"
+	 parameterType="String">
+		SELECT COUNT(*) FROM silver_notice where status=0
+	</select>
+	 
+	<!-- 페이징 기법을 활용한 select -->
+	<select id="notice_list" 
+	resultType="silver.web.vo.NoticeBoardVO" 
+	parameterType="java.util.Map">
+		SELECT * FROM (
+			SELECT rownum as r_num, a.* FROM (
+				SELECT * FROM silver_notice where status = 0
+				) a
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	
+	</select>
+	  
   <!-- 로그인 select -->
   <select id="login" 
   resultType="silver.web.vo.LoginVO"
@@ -20,4 +39,34 @@
   	VALUES(#{tel},#{name},#{birth},#{addr}, #{gender},
   	1, sysdate, #{pwd}, SEQ_SILVER_IDX.NEXTVAL, #{nickname})
   </insert>
+  <!--공지사항 쓰기 -->
+  <insert id="notice_write" 
+	parameterType="silver.web.vo.NoticeBoardVO">
+		INSERT INTO silver_notice(b_idx,subject,
+		 nickname,content,write_date, ip,status)
+		VALUES(SEQ_NOTICE_IDX.NEXTVAL,#{subject},
+		 #{nickname},#{content},sysdate,#{ip},0)
+	</insert>
+	<!-- 공지사항 보기 -->
+	<select id="notice_getBoard" 
+	parameterType="String" 
+	resultType="silver.web.vo.NoticeBoardVO">
+		SELECT * FROM silver_notice
+		WHERE b_idx=#{n}
+	</select> 
+	<!--공지사항 수정 -->
+	<update id="notice_edit" 
+	parameterType="silver.web.vo.NoticeBoardVO">
+		UPDATE silver_notice
+		SET subject=#{subject},
+			content=#{content}
+		WHERE b_idx=#{b_idx} 
+		<!--  AND nickname=#{nickname}-->
+	</update>	
+	<!-- 공지사항 삭제 -->
+	<update id="notice_del" parameterType="silver.web.vo.NoticeBoardVO">
+		update silver_notice
+		set status = 1
+		where b_idx=#{b_idx}
+	</update>
 </mapper>

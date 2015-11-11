@@ -257,7 +257,7 @@
 			<p><img src="img/happysilver.jpg" alt="배경" width="200px" height="200px"/>SilverCommunity</p>
 			<ul>
 				<li><img src="img/freeboard.png"></li>
-				<li><a href="www.naver.com">PRODUCT</a></li>
+				<li><a href="notice.sc">Notice</a></li>
 				<li><a href="www.naver.com">CUSTOMER</a></li>
 				<li><a href="www.naver.com">COMMUNITY</a></li>
 			</ul>

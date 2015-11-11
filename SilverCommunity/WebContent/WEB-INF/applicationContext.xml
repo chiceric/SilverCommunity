@@ -31,4 +31,8 @@
 	<bean id="dao" class="silver.web.dao.LoginDAO" autowire="byName">
 		<!-- <property name="template" ref="template"/> -->
 	</bean>
+	
+	<bean id="ntdao" class="silver.web.dao.NoticeBoardDAO" autowire="byName">
+		
+	</bean>
 </beans>

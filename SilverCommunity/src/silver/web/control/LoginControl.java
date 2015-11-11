@@ -57,7 +57,7 @@ public class LoginControl {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("vo", vo);
-	
+		request.getSession().setAttribute("nickname", vo.getNickname());
 	if(vo != null){
 			session.setAttribute("login_ok", vo);
 			mv.setViewName("/index");
